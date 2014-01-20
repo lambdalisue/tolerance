@@ -42,15 +42,15 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'src'
-copyright = u'2014, Author'
+project = u'tolerance'
+copyright = u'2014, hashnote.net, Alisue'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = ''
+version = '0.1.0'
 # The full version, including alpha/beta/rc tags.
 release = ''
 
@@ -166,7 +166,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'srcdoc'
+htmlhelp_basename = 'tolerancedoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -185,8 +185,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'src.tex', u'src Documentation',
-   u'Author', 'manual'),
+  ('index', 'tolerance.tex', u'tolerance Documentation',
+   u'Alisue', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -215,8 +215,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'src', u'src Documentation',
-     [u'Author'], 1)
+    ('index', 'tolerance', u'tolerance Documentation',
+     [u'Alisue'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -229,8 +229,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'src', u'src Documentation',
-   u'Author', 'src', 'One line description of project.',
+  ('index', 'tolerance', u'tolerance Documentation',
+   u'Alisue', 'tolerance', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -247,10 +247,10 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'src'
-epub_author = u'Author'
-epub_publisher = u'Author'
-epub_copyright = u'2014, Author'
+epub_title = u'tolerance'
+epub_author = u'Alisue'
+epub_publisher = u'Alisue'
+epub_copyright = u'2014, hashnote.net, Alisue'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
