@@ -49,6 +49,10 @@ of code described in Usage section.
 
 .. _Django: https://www.djangoproject.com/
 
+Check
+`online documentation <http://python-tolerance.readthedocs.org/en/latest/>`_
+for more details.
+
 Features
 --------
 
