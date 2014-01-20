@@ -1,0 +1,7 @@
+[report]
+omit =
+    src/tolerance/__init__.py
+    src/tolerance/functional.py
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
