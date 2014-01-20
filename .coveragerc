@@ -1,3 +1,7 @@
+[paths]
+source =
+    src/
+    tests/
 [report]
 omit =
     src/tolerance/__init__.py
