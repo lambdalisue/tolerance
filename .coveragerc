@@ -1,8 +1,7 @@
-[paths]
-source =
-    src/
-    tests/
 [report]
+include =
+    src/*.py
+    tests/*.py
 omit =
     src/tolerance/__init__.py
     src/tolerance/functional.py
