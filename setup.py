@@ -40,7 +40,9 @@ setup(
     package_dir = {'': 'src'},
     include_package_data = True,
     package_data = {
-        '': ['LICENSE', 'README.rst',
+        '': ['LICENSE',
+             'README.rst',
+             'TEST.rst',
              'requirements.txt',
              'requirements-test.txt',
              'requirements-docs.txt'],
