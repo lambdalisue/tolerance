@@ -134,6 +134,19 @@ These arguments are explained in Case study and detailed in API documentation.
 
 .. _PEP-318: http://www.python.org/dev/peps/pep-0318/
 
+Change log
+----------
+Version 0.1.0
+    + Initial development
+    + Manually tested with Python 2.4, 2.5, 2.7, 3.2, 3.3
+Version 0.1.1
+    + ``switch`` shortcut feature is added
+    + Drop off supporting Python 2.4 and 2.5
+    + Support Python 3.2 and 3.3 via 2to3
+    + Use tox_ for testing
+
+.. _tox: http://tox.readthedocs.org/en/latest/index.html
+
 Case study
 ----------
 
