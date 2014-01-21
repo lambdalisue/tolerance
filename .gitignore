@@ -1,4 +1,5 @@
 cover
 docs/_build
+.tox
 .profile
 .coverage
