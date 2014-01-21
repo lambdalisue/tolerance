@@ -290,6 +290,27 @@ A. Use ``argument_switch_generator`` to make switch function.
     >>> # raise_exception does not know fail_silently so ignore
     >>> raise_exception(fail_silently=False) is None
     True
+    >>> #
+    >>> # From Version 0.1.1
+    >>> #
+    >>> @tolerate(switch='quiet')
+    ... def raise_exception():
+    ...     raise KeyError
+    >>> raise_exception() is None
+    True
+    >>> raise_exception(quiet=False)
+    Traceback (most recent call last):
+        ...
+    KeyError
+    >>> raise_exception(fail_silently=False) is None
+    True
+
+.. note::
+    From Version 0.1.1, you can simply specify the argument name to ``switch``
+    argument and then  ``tolerant`` function will call
+    ``argument_switch_generator`` internally with the specified name.
+
+    See detailed informations on API documentation
 
 Q. I want to make the function ignoreing exceptions only when ``fail_silently=True`` is passed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -309,6 +330,31 @@ A. Use ``default`` argument to tell ``argument_switch_generator`` function
     KeyError
     >>> raise_exception(fail_silently=True) is None
     True
+    >>> #
+    >>> # From Version 0.1.1
+    >>> #
+    >>> @tolerate(switch=[None, False])
+    ... def raise_exception():
+    ...     raise KeyError
+    >>> raise_exception() is None
+    Traceback (most recent call last):
+        ...
+    KeyError
+    >>> @tolerate(switch={'default': False})
+    ... def raise_exception():
+    ...     raise KeyError
+    >>> raise_exception() is None
+    Traceback (most recent call last):
+        ...
+    KeyError
+
+.. note::
+    From Version 0.1.1, you can simply specify ``*args`` or ``**kwargs`` of
+    ``argument_switch_generator`` to ``switch`` argument and ``tolerant``
+    function will call ``argument_switch_generator`` internally with the
+    specified arguments.
+
+    See detailed informations on API documentation
 
 Q. I want to disable the ignoreing exceptions when ``verbose=False`` is passed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -328,6 +374,18 @@ A. Use ``reverse`` argument to tell ``argument_switch_generator`` function
     Traceback (most recent call last):
         ...
     KeyError
+    >>> #
+    >>> # From Version 0.1.1
+    >>> #
+    >>> @tolerate(switch={'argument_name': 'verbose', 'reverse': True})
+    ... def raise_exception():
+    ...     raise KeyError
+    >>> raise_exception() is None
+    True
+    >>> raise_exception(verbose=True)
+    Traceback (most recent call last):
+        ...
+    KeyError
 
 Q. I want to use ``fail_silently`` argument even in decorated function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -339,6 +397,20 @@ A. Use ``keep`` argument to tell ``argument_switch_generator`` function
     >>> from tolerance import argument_switch_generator
     >>> switch_function = argument_switch_generator('fail_silently', keep=True)
     >>> @tolerate(switch=switch_function)
+    ... def raise_exception(**kwargs):
+    ...     if 'fail_silently' in kwargs:
+    ...         raise KeyError
+    ...     return 'Failed!'
+    >>> raise_exception(fail_silently=True) is None
+    True
+    >>> raise_exception(fail_silently=False)
+    Traceback (most recent call last):
+        ...
+    KeyError
+    >>> #
+    >>> # From Version 0.1.1
+    >>> #
+    >>> @tolerate(switch={'keep': True})
     ... def raise_exception(**kwargs):
     ...     if 'fail_silently' in kwargs:
     ...         raise KeyError
