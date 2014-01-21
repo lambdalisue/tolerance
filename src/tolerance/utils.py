@@ -4,16 +4,20 @@ tolerance utility module
 """
 __author__ = 'Alisue <lambdalisue@hashnote.net>'
 
+DEFAULT_ARGUMENT_NAME = 'fail_silently'
 
-def argument_switch_generator(argument_name, default=True, reverse=False,
+def argument_switch_generator(argument_name = None,
+                              default=True, reverse=False,
                               keep=False):
     """
     Create switch function which return the status from specified named argument
 
     Parameters
     ----------
-    argument_name : string
-        An argument name which is used to judge the status
+    argument_name : string or None
+        An argument name which is used to judge the status.
+        If ``None`` is specified, the value of
+        ``tolerance.utils.DEFAULT_ARGUMENT_NAME`` will be used instead.
     default : boolean
         A default value of this switch function.
         It is used when specifid ``**kwargs`` does not have named argument
@@ -70,6 +74,8 @@ def argument_switch_generator(argument_name, default=True, reverse=False,
     >>> 'fail_silently' in kwargs
     True
     """
+    if argument_name is None:
+        argument_name = DEFAULT_ARGUMENT_NAME
     def switch_function(*args, **kwargs):
         if argument_name in kwargs:
             if keep:

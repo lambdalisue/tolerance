@@ -19,7 +19,7 @@ def test_argument_switch_generator_specification():
     eq_(args, ['argument_name', 'default', 'reverse', 'keep'])
     eq_(varargs, None)
     eq_(keywords, None)
-    eq_(defaults, (True, False, False))
+    eq_(defaults, (None, True, False, False))
 
 def test_argument_switch_generator_return_function():
     """
@@ -27,6 +27,10 @@ def test_argument_switch_generator_return_function():
     """
     fn = argument_switch_generator('fail_silently')
     ok_(inspect.isfunction(fn), 'Return value is not a function')
+
+    # version 0.1.1
+    fn2 = argument_switch_generator()
+    ok_(inspect.isfunction(fn2), 'Return value is not a function')
 
 def test_argument_swith_generators_fn_return_three_item_tuple():
     """
