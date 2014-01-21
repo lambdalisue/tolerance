@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
 NAME = 'tolerance'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 def read(filename):
     import os
