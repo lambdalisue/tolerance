@@ -33,7 +33,7 @@ def tolerate(substitute=None, exceptions=None,
         A list of exception classes or None. 
         If exceptions is specified, ignore exceptions only listed in this
         parameter and raise exception if the exception is not listed.
-    switch : function or None
+    switch : string, list/tuple, dict, function or None
         A switch function which determine whether silent the function failar.
         The function receive ``*args`` and ``**kwargs`` which will specified
         to :attr:`fn` and should return status (bool), args, and kwargs.
@@ -43,7 +43,18 @@ def tolerate(substitute=None, exceptions=None,
         :func:`argument_switch_generator` with
         ``argument_switch_generator('fail_silently')``
         so if ``fail_silently=False`` is specified to the function, the function
-        works as noramlly.
+        works as noramlly.  
+        
+        **From Version 0.1.1**, when switch is specified as non functional value,
+        :func:`argument_switch_generator` will be called with switch as
+        arguments.
+        If string is specified, the switch generator will be called as
+        ``argument_switch_generator(switch)``.
+        If list or tuple is specified, the switch generator will be called as
+        ``argument_switch_generator(*switch)``.
+        If dict is specified, the switch generator will be called as
+        ``argument_switch_generator(**switch)``.
+
 
     Returns
     -------
@@ -127,6 +138,36 @@ def tolerate(substitute=None, exceptions=None,
         ...
     ValueError
     >>> tolerate.disabled = False   # rollback
+    >>> #
+    >>> # Features from Version 0.1.1
+    >>> # 
+    >>> # specify switch as a string
+    >>> parse_int_string = tolerate(switch='patient')(int)
+    >>> parse_int_string('zero') is None
+    True
+    >>> parse_int_string('zero', patient=False)
+    Traceback (most recent call last):
+        ...
+    ValueError: ...
+    >>> # specify switch as a list
+    >>> parse_int_list = tolerate(switch=['fail_silently', False])(int)
+    >>> parse_int_list('zero')
+    Traceback (most recent call last):
+        ...
+    ValueError: ...
+    >>> parse_int_string('zero', fail_silently=True) is None
+    True
+    >>> # specify switch as a dict
+    >>> parse_int_dict = tolerate(switch={'argument_name': 'aggressive',
+    ...                                   'reverse': True})(int)
+    >>> parse_int_dict('zero') is None
+    True
+    >>> parse_int_dict('zero', aggressive=False) is None
+    True
+    >>> parse_int_dict('zero', aggressive=True) is None
+    Traceback (most recent call last):
+        ...
+    ValueError: ...
     """
     if switch:
         # create argument switch if switch is string or list or dict
