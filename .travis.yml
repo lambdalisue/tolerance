@@ -1,9 +1,6 @@
 language: python
 install:
   - pip install tox
-  - pip install -qr requirements-test.txt
-  - pip install -q coverage coveralls
-  - pip install .
 
 script:
   - tox
