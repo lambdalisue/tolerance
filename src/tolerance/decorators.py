@@ -128,6 +128,14 @@ def tolerate(substitute=None, exceptions=None,
     ValueError
     >>> tolerate.disabled = False   # rollback
     """
+    if switch:
+        # create argument switch if switch is string or list or dict
+        if isinstance(switch, basestring):
+            switch = argument_switch_generator(switch)
+        elif isinstance(switch, (list, tuple)):
+            switch = argument_switch_generator(*switch)
+        elif isinstance(switch, dict):
+            switch = argument_switch_generator(**switch)
     # callable alternative because callable is removed in python 3
     is_callable = lambda x: hasattr(x, '__call__')
     def decorator(fn):
