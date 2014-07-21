@@ -1,5 +1,2 @@
-tox
 nose
-coverage
-coveralls
 mock
