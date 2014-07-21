@@ -28,6 +28,11 @@ tolerance
     :target: https://pypi.python.org/pypi/tolerance/
     :alt: License
 
+Author
+    Alisue <lambdalisue@hashnote.net>
+Supported python versions
+    2.6, 2.7, 3.2, 3.3, 3.4
+
 Do you often write the fail silent codes like below?
 
 .. code-block:: python
