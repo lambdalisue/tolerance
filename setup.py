@@ -1,10 +1,10 @@
 # coding=utf-8
 import sys
 from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
 
 NAME = 'tolerance'
-VERSION = '0.1.1'
+VERSION = '0.1.2'
+
 
 def read(filename):
     import os
@@ -12,6 +12,7 @@ def read(filename):
     filename = os.path.join(BASE_DIR, filename)
     fi = open(filename, 'r')
     return fi.read()
+
 
 def readlist(filename):
     rows = read(filename).split("\n")
@@ -23,10 +24,10 @@ if sys.version_info > (3,):
     setup_extras['use_2to3'] = True
 
 setup(
-    name = NAME,
-    version = VERSION,
-    description = ('A function decorator which makes a function tolerant ('
-                  'the function fail silently).'),
+    name=NAME,
+    version=VERSION,
+    description=('A function decorator which makes a function tolerant ('
+                 'the function fail silently).'),
     long_description = read('README.rst'),
     classifiers = (
         'Development Status :: 3 - Alpha',
