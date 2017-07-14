@@ -6,11 +6,14 @@ __author__ = 'Alisue <lambdalisue@hashnote.net>'
 
 DEFAULT_ARGUMENT_NAME = 'fail_silently'
 
-def argument_switch_generator(argument_name = None,
-                              default=True, reverse=False,
+
+def argument_switch_generator(argument_name=None,
+                              default=True,
+                              reverse=False,
                               keep=False):
     """
-    Create switch function which return the status from specified named argument
+    Create switch function which return the status from specified named
+    argument
 
     Parameters
     ----------
@@ -74,8 +77,6 @@ def argument_switch_generator(argument_name = None,
     >>> 'fail_silently' in kwargs
     True
     """
-    if argument_name is None:
-        argument_name = DEFAULT_ARGUMENT_NAME
     def switch_function(*args, **kwargs):
         if argument_name in kwargs:
             if keep:
@@ -87,8 +88,11 @@ def argument_switch_generator(argument_name = None,
         else:
             status = default
         return bool(status), args, kwargs
+    if argument_name is None:
+        argument_name = DEFAULT_ARGUMENT_NAME
     return switch_function
 
 
 if __name__ == '__main__':
-    import doctest; doctest.testmod()
+    import doctest
+    doctest.testmod()
