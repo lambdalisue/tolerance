@@ -8,15 +8,15 @@ tolerance
     :target: https://coveralls.io/r/lambdalisue/tolerance/
     :alt: Coverage
 
-.. image:: https://pypip.in/d/tolerance/badge.png
+.. image:: https://img.shields.io/pypi/dm/tolerance.svg
     :target: https://pypi.python.org/pypi/tolerance/
     :alt: Downloads
 
-.. image:: https://pypip.in/v/tolerance/badge.png
+.. image:: https://img.shields.io/pypi/v/tolerance.svg
     :target: https://pypi.python.org/pypi/tolerance/
     :alt: Latest version
 
-.. image:: https://pypip.in/wheel/tolerance/badge.png
+.. image:: https://img.shields.io/pypi/wheel/tolerance.svg
     :target: https://pypi.python.org/pypi/tolerance/
     :alt: Wheel Status
 
@@ -24,7 +24,7 @@ tolerance
     :target: https://pypi.python.org/pypi/tolerance/
     :alt: Egg Status
 
-.. image:: https://pypip.in/license/tolerance/badge.png
+.. image:: https://img.shields.io/pypi/l/tolerance.svg
     :target: https://pypi.python.org/pypi/tolerance/
     :alt: License
 
